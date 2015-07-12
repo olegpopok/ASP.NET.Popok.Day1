@@ -8,15 +8,18 @@ namespace Task1.Library
 {
     public static class Newton
     {
-        public static double Radical(double value, int n, double e)
+        public static double Radical(double value, int n, double epsilon)
         {
+            if (value < 0 && n % 2 == 0)
+                throw new ArgumentException();
+
             double xPrev, xNext = 1;
 
             do
             {
                 xPrev = xNext;
                 xNext = xPrev - Function(value, xPrev, n) / DerivativeOfFunction(xPrev, n);
-            } while (System.Math.Abs(xNext - xPrev) > e);
+            } while (System.Math.Abs(xNext - xPrev) > epsilon);
 
             return xNext;
         }
