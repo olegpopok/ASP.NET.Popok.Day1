@@ -33,7 +33,7 @@ namespace Task1.Library
                 xn *= x;
                 n--;
             }
-
+            
             return xn - a;
         }
 
