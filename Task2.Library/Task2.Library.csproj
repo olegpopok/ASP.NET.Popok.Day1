@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ISZArrayComparer.cs" />
     <Compile Include="JuggedArray.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

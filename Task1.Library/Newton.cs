@@ -8,9 +8,16 @@ namespace Task1.Library
 {
     public static class Newton
     {
+        private const double epsilon = 0.000001;
+
+        public static double Radical(double value, int n)
+        {
+           return  Radical(value, n, epsilon);
+        }
+
         public static double Radical(double value, int n, double epsilon)
         {
-            if (value < 0 && n % 2 == 0)
+            if ((value < 0 && n % 2 == 0) || epsilon < 0)
                 throw new ArgumentException();
 
             double xPrev, xNext = 1;
