@@ -67,7 +67,7 @@ namespace Task1_2.Console
             return sum;
         }
 
-        private class SortSumElementsAscending : ISZArrayComparer
+        private sealed class SortSumElementsAscending : ISZArrayComparer
         {
             public int Compare(int[] x, int[] y)
             {
@@ -82,7 +82,7 @@ namespace Task1_2.Console
             }
         }
 
-        private class SortSumElementsDescending : ISZArrayComparer
+        private sealed class SortSumElementsDescending : ISZArrayComparer
         {
              public int Compare(int[] x, int[] y)
             {
@@ -106,7 +106,7 @@ namespace Task1_2.Console
             return max;
         }
 
-        private class SortMaxElelmentInModuleAscending : ISZArrayComparer
+        private sealed class SortMaxElelmentInModuleAscending : ISZArrayComparer
         {
             public int Compare(int[] x, int[] y)
             {
@@ -121,7 +121,7 @@ namespace Task1_2.Console
             }
         }
 
-        private class SortMaxElelmentInModuleDescending : ISZArrayComparer
+        private sealed class SortMaxElelmentInModuleDescending : ISZArrayComparer
         {
             public int Compare(int[] x, int[] y)
             {
