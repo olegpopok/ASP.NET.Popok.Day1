@@ -53,25 +53,20 @@ namespace Task1_2.Console
         {
             for(int i = 0; i < array.Length; i++)
             {
-                for(int j = 0; j < array[i].Length; j++)
+                for (int j = 0; j < array[i].Length; j++)
+                {
                     System.Console.Write("{0}  ", array[i][j]);
+                }
+
                 System.Console.WriteLine();
             }
         }
 
-        private static int Sum(int[] array)
-        {
-            int sum = array[0];
-            for (int i = 1; i < array.Length; i++)
-                sum += array[i];
-            return sum;
-        }
-
-        private sealed class SortSumElementsAscending : ISZArrayComparer
+        private sealed class SortSumElementsAscending : IComparer<int[]>
         {
             public int Compare(int[] x, int[] y)
             {
-                int sumOfX = Sum(x), sumOfY = Sum(y);
+                int sumOfX = x.Sum(), sumOfY = y.Sum();
 
                 if (sumOfX > sumOfY)
                     return 1;
@@ -82,11 +77,11 @@ namespace Task1_2.Console
             }
         }
 
-        private sealed class SortSumElementsDescending : ISZArrayComparer
+        private sealed class SortSumElementsDescending : IComparer<int[]>
         {
              public int Compare(int[] x, int[] y)
             {
-                int sumOfX = Sum(x), sumOfY = Sum(y);
+                int sumOfX = x.Sum(), sumOfY = y.Sum();
 
                 if (sumOfX > sumOfY)
                     return -1;
@@ -97,20 +92,11 @@ namespace Task1_2.Console
             }
         }
 
-        private static int MaxElementInModule(int[] array)
-        {
-            int max = array[0];
-            for (int i = 1; i < array.Length; i++)
-                if (Math.Abs(array[i]) > max)
-                    max = Math.Abs(array[i]);
-            return max;
-        }
-
-        private sealed class SortMaxElelmentInModuleAscending : ISZArrayComparer
+        private sealed class SortMaxElelmentInModuleAscending : IComparer<int[]>
         {
             public int Compare(int[] x, int[] y)
             {
-                int maxElementOfX = MaxElementInModule(x), maxElementOfY = MaxElementInModule(y);
+                int maxElementOfX = x.Max(numb => Math.Abs(numb)), maxElementOfY = y.Max(num => Math.Abs(num));
 
                 if (maxElementOfX > maxElementOfY)
                     return 1;
@@ -121,11 +107,11 @@ namespace Task1_2.Console
             }
         }
 
-        private sealed class SortMaxElelmentInModuleDescending : ISZArrayComparer
+        private sealed class SortMaxElelmentInModuleDescending : IComparer<int[]>
         {
             public int Compare(int[] x, int[] y)
             {
-                int maxElementOfX = MaxElementInModule(x), maxElementOfY = MaxElementInModule(y);
+                int maxElementOfX = x.Max(numb => Math.Abs(numb)), maxElementOfY = y.Max(numb => Math.Abs(numb));
 
                 if (maxElementOfX > maxElementOfY)
                     return -1;

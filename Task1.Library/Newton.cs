@@ -18,7 +18,9 @@ namespace Task1.Library
         public static double Radical(double value, int n, double epsilon)
         {
             if ((value < 0 && n % 2 == 0) || epsilon < 0)
+            {
                 throw new ArgumentException();
+            }
 
             double xPrev, xNext = 1;
 
